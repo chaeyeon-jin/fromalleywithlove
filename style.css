@@ -1,0 +1,1214 @@
+/* Font Settings */
+@font-face {
+    font-family: 'SM KGothic STD';
+    src: local('SM KGothic STD');
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important; /* 모든 요소에서 기본 커서 숨기기 */
+}
+
+body {
+    /* Use orbit for Korean/default, keep english-text separate */
+    font-family: "orbit", sans-serif; 
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden; /* Change to hidden to prevent horizontal scrollbar */
+    cursor: none; /* 기본 커서 숨기기 */
+    letter-spacing: -0.09em; /* Slightly reduced letter spacing */
+    min-height: 300vh; /* Increased from 120vh to ensure enough scrollable content */
+    line-height: 1.8; /* Increased line height for orbit font */
+    text-align: left; /* 좌측 정렬 */
+    hyphens: none; /* 하이픈 없음 */
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    text-rendering: optimizeLegibility; /* 텍스트 렌더링 최적화 */
+}
+
+a, button, input, select, textarea, #navbutton, #dropdown li, .stamp, #close-detail {
+    cursor: none; /* 모든 인터랙티브 요소에서 기본 커서 숨기기 */
+}
+
+/* 커스텀 커서 스타일 */
+#cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: #ccff00;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: width 0.3s, height 0.3s, opacity 0.3s, transform 0.1s;
+    opacity: 0.9;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* 인터랙티브 요소 위에 있을 때 커서 확대 */
+.cursor-hover {
+    width: 30px !important;
+    height: 30px !important;
+    background-color: #ccff00 !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 15px #ccff00 !important;
+    transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+.english-text {
+    /* Keep the specific English font */
+    font-family: "r41-alfabeta-72", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+nav {
+    position: fixed; /* Changed from absolute for better viewport adherence */
+    top: 10px;
+    left: 20px;
+    z-index: 110; /* Ensure nav is above other elements */
+}
+
+#navbutton {
+    margin: 0px;
+    margin-bottom: -30px;
+    cursor: none;
+    width: 100px; /* Example size, adjust as needed */
+    height: auto;
+    
+}
+
+#dropdown {
+    list-style: none;
+    padding: 10px;
+    margin: 5px 0 0 0;
+    /* Remove background, filter, and shadow */
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    display: block; /* Initially visible */
+    position: absolute; /* Position relative to nav */
+    top: 100%; /* Position below the button */
+    left: 0;
+    width: 150px;
+    /* Remove backdrop filter and box-shadow */
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(7px); */
+    /* box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.4); */
+    max-height: 200px; /* 충분한 높이 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: max-height 0.6s ease, opacity 0.6s ease; /* 부드러운 접힘 효과 */
+    opacity: 1;
+}
+
+#dropdown.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+#dropdown li {
+    padding: 1.5px 0; /* Reduce vertical padding */
+    cursor: pointer;
+    font-size: 1.43em; /* Increase font size by 10% */
+    /* 더 선명한 기본 그림자 */
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* 마우스 호버 시 훨씬 선명한 그림자 효과 */
+#dropdown li:hover {
+    text-shadow: 
+        0px 0px 2px #fff,
+        0px 0px 4px #fff,
+        0px 0px 6px #fff,
+        0px 0px 8px #fff,
+        0px 0px 10px #fff;
+    color: #000;
+}
+
+/* Fixed Background */
+#fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* 모든 콘텐츠 뒤에 위치 */
+    background: radial-gradient(#FF5EB4 30%, #CFCFCF 70%);
+}
+
+/* Main Title Section */
+#mainTitleBox {
+    height: 100vh; /* Make section fill the viewport height */
+    display: flex;
+    /* Align items to the bottom-left */
+    justify-content: flex-start; 
+    align-items: flex-end; 
+    position: relative; /* Needed for absolute positioning of children */
+    overflow: hidden; /* Hide overflow from silhouettes */
+    background: transparent; /* Remove background, now handled by fixed-background */
+    padding: 100px; /* Increased padding for spacing */
+}
+
+#mainTitle {
+    text-align: left;
+    /* Remove transform */
+    position: relative;
+    z-index: 1;
+}
+
+#fromAlley {
+    display: block;
+    /* Reduce font size by 20% (1.875rem * 0.8 = 1.5rem) */
+    font-size: 2rem;
+    margin-bottom: 0.8rem; /* Adjust margin accordingly */
+    text-shadow: 0px 0px 15px #cfcfcf, 0px 0px 15px #cfcfcf;
+}
+
+#withLove {
+    display: block;
+    /* Reduce font size by 20% (5.875rem * 0.8 = 4.7rem) */
+    padding-left: 100px;
+    font-size: 6rem;
+    text-shadow: 0px 0px 15px #cfcfcf, 0px 0px 15px #cfcfcf;    
+}
+
+/* Character animation styles */
+.char {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 바운스 효과 추가 */
+    position: relative;
+    transform-origin: center;
+}
+
+#silhouettes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent silhouettes from interfering with clicks */
+}
+
+#silhouettes img {
+    position: absolute; /* Enable positioning via JS */
+    /* Using max-height as an example proxy for 1/8th size. Adjust value as needed. */
+    /* Actual 1/8th size requires knowing original dimensions, which is hard in pure CSS */
+    max-height: 8vh; /* Example: Max 5% of viewport height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure aspect ratio is maintained */
+}
+
+/* About Section */
+.about-section {
+    height: 70vh; /* Full viewport height */
+}
+
+#about-title {
+    font-family: "r41-alfabeta-72", sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px #fff, 0px 0px 8px #fff;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px #fff, 0px 0px 8px #fff;
+}
+
+.about-content {
+    margin-top: 0;
+    width: 30vw;
+    margin: 10vh auto;
+}
+
+#placeswrapper {
+    position: relative;
+    height: 100%;
+    width: 200vw; /* 변경: 150vw → 200vw으로 조정 */
+    display: flex;
+    align-items: center;
+    padding-left: 8vw; /* Slightly reduced padding */
+    padding-right: 8vw;
+    transform: translateX(0); /* Start at the beginning (will be updated by JS) */
+    will-change: transform;
+    gap: 15px; /* 추가: place-item 간 간격 설정 */
+}
+
+#places-title-container {
+    position: sticky;
+    top: 7vh;
+    width: 100%;
+    z-index: 100; /* 더 높은 z-index */
+    text-align: center;
+    pointer-events: none; /* 클릭이 아래 요소들에 전달되도록 */
+    margin-bottom: 0; /* places와의 간격 */
+    opacity: 0; /* 초기에는 투명하게 설정 */
+    transition: opacity 0.5s ease; /* 부드러운 페이드 효과 */
+}
+
+#places-title {
+    font-size: 4rem;
+    margin: 0 auto;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: 0px 0px 8px #fff, 0px 0px 8px #fff;
+    color: #000;
+    text-align: center;
+    display: inline-block;
+}
+
+.places-container {
+  display: flex;
+  flex-direction: row;
+    width: max-content; /* Allow container to grow as needed */
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: visible;
+}
+
+.place {
+  display: flex;
+    flex-direction: column;
+    width: 300px;
+    min-width: 300px;
+    margin-bottom: 30px;
+}
+
+.place img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.placeText {
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-left: 2px dotted black;
+    padding-left: 10px;
+}
+
+.placeTitle {
+    text-align: center;
+}
+
+.placeTitle h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+main {
+    position: relative;
+    overflow: visible;
+}
+
+/* Stamps Section */
+#stamps {
+    margin-top: 3vh;
+    margin-bottom: 0; /* Reduced from 150vh to allow letter-form to appear */
+    padding: 2rem;
+    width: 100%;
+    position: relative; /* Changed from auto */
+    z-index: 5;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 동일한 이징 함수 사용 */
+}
+
+/* stamp-detail이 열렸을 때 stamps 섹션 스타일 */
+body.detail-open #stamps {
+    width: 67%; /* 75%에서 67%로 감소 */
+    transform: translateX(0); /* 왼쪽 정렬로 변경 */
+    transition: width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 동일한 이징 함수 사용 */
+}
+
+#stamps h2 {
+    width: 40%; /* 너비 증가 */
+    font-size: 4rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0px 0px 8px #fff, 0px 0px 8px #fff;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 동일한 이징 함수 사용 */
+}
+
+body.detail-open #stamps h2 {
+    transform: translateX(0); /* 중앙에 유지 */
+    width: 50%; /* 상세창 열렸을 때 더 넓게 */
+    margin: 0 auto 2rem auto; /* 중앙 정렬로 변경 */
+    text-align: center; /* 텍스트도 중앙 정렬 */
+}
+
+#stampwrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, auto);
+    column-gap: 0; /* 가로 간격 적당히 */
+    row-gap: 0; /* 세로 간격 최소화 */
+    max-width: 70vw; /* 화면 너비에 맞게 설정 */
+    margin: 0 auto;
+    line-height: 0;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 동일한 이징 함수 사용 */
+}
+
+body.detail-open #stampwrapper {
+    max-width: 60vw; /* 상세 창이 커져서 더 작게 조정 */
+    margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
+    transition: max-width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), margin 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 동일한 이징 함수 사용 */
+}
+
+.stamp {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    cursor: pointer; /* 클릭 가능함을 보여주는 커서 */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
+    position: relative;
+}
+
+.stamp img { /* 이미지 크기 줄임 */
+    min-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+body.detail-open .stamp img {
+    max-height: 180px; /* 상세 창이 열렸을 때 이미지 크기 약간 축소 */
+    transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* 스탬프 상세 정보 창 */
+#stamp-detail {
+    position: fixed;
+    top: 0;
+    right: -33%; /* 너비에 맞게 초기 위치 조정 */
+    left: auto;
+    width: 33%; /* 25%에서 33%로 증가 */
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3); /* 흰색 배경에 40% 투명도 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* 부드러운 이징 함수 */
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    border: 2px dotted #ccff00;
+    border-radius: 10px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#stamp-detail.open {
+    right: 0; /* 열릴 때 오른쪽에서 슬라이드 인 */
+}
+
+/* 닫힌 상태에서는 오른쪽 바깥에 위치 */
+#stamp-detail:not(.open) {
+    right: -33%; /* 너비에 맞게 조정 */
+    left: auto;
+}
+
+#close-detail {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#close-detail:before, #close-detail:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+}
+
+#close-detail:before {
+    transform: rotate(45deg);
+}
+
+#close-detail:after {
+    transform: rotate(-45deg);
+}
+
+#detail-content {
+    margin-top: 20px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#detail-content h2 {
+    text-align: center; /* 제목 중앙 정렬 */
+    margin: 0 auto 1rem auto; /* 상하 여백 조정, 좌우 auto로 중앙 정렬 */
+    width: 100%; /* 너비 확장 */
+}
+
+#detail-content p {
+    text-align: center; /* 설명 텍스트 중앙 정렬 */
+    margin: 0 auto; /* 좌우 auto로 중앙 정렬 */
+}
+
+.detail-image-container {
+    max-width: 90%; /* Reduced from 100% to 90% */
+    margin: 10px auto;
+    position: relative;
+    display: block;
+    text-align: center; /* 이미지 컨테이너 중앙 정렬 */
+}
+
+.detail-image {
+    width: 90%; /* Reduced from 100% to 90% */
+    cursor: zoom-in; /* 확대 가능함을 나타내는 커서 */
+    transition: transform 0.2s ease;
+    display: block;
+    margin: 0 auto; /* Added to center the image */
+}
+
+.detail-image:hover {
+    transform: scale(1.05); /* 호버 시 약간 확대 효과 */
+}
+
+/* 원본 이미지 표시 컨테이너 */
+#original-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* 기본적으로 숨김 상태 */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* 모든 요소보다 위에 표시 */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#original-image-container.visible {
+    opacity: 1;
+}
+
+#original-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    box-shadow: none;
+}
+
+.hover-instruction {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0;
+}
+
+/* 마우스 인터랙션 효과를 위한 스타일 */
+.interactive-element {
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+#mainTitle .interactive-element {
+    display: inline-block;
+    transform-origin: center center;
+}
+
+/* 배경 글로우 스타일 제거 (display: none으로 숨김) */
+#mouse-background-glow {
+    display: none;
+}
+
+/* 글자 애니메이션 효과 강화 */
+.char {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 바운스 효과 추가 */
+    position: relative;
+    transform-origin: center;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-5px); }
+    100% { opacity: 0.6; transform: translateY(0); }
+}
+
+/* Letter Form Styles */
+#letter-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    margin: 0;
+    position: sticky; /* Changed from fixed to sticky */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 90;
+    transform: translateX(100vw); /* Initially off-screen to the right */
+    will-change: transform;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    visibility: visible;
+    opacity: 1;
+    transition: transform 0.3s ease-out;
+}
+
+/* Letter form sticky container (similar to places) */
+#letter-form-sticky-container {
+    position: relative;
+    height: 400vh; /* Provides scroll distance for animation */
+    z-index: 10;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-family: "r41-alfabeta-72", serif;
+    font-style: italic;
+    color: #333;
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+    background: radial-gradient( #ccff00 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Letter form elements shadow effects */
+.letter-container, .letter-main, .letter-header, .letter-body, .options, .stamp-selector, .stamp-selector-container {
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+}
+
+.letter-header, .letter-body, .stamp-selector-container, .options {
+    background-color: rgba(255, 255, 255, 0.2); /* 약간의 반투명 배경 */
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.3); /* 흰색 그림자 효과 */
+}
+
+.letter-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: rgba(255, 94, 180, 0.5);
+    border: 2px dotted #ccff00;
+    border-radius: 20px;
+}
+
+.letter-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+}
+
+.letter-body-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+}
+
+.letter-content-wrapper.drag-over {
+    border: 2px dashed #FF5EB4;
+    background-color: rgba(255, 94, 180, 0.1);
+}
+
+.letter-body {
+    width: 100%;
+    height: 41vh;
+    padding: 40px;
+    border: 2px dotted #ccff00;
+    background-color: rgba(243, 165, 208);
+    margin-top: 15px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.stamps-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 레이어 자체는 마우스 이벤트 무시 */
+    z-index: 2;
+}
+
+.placed-stamp {
+    position: absolute;
+    z-index: 10;
+    cursor: move;
+    pointer-events: auto; /* 개별 우표는 마우스 이벤트 받음 */
+}
+
+.letter-body:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255);
+}
+
+.stamp-selector {
+    width: 20%; /* Adjusted width */
+    height: auto; /* Let it adjust to content */
+    padding-left: 3.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px dotted #ccff00;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 2px dotted #ccff00;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+}
+
+.option-button, .adv-option-button {
+    padding: 5px 8px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px dotted #ccff00;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-button:hover, .adv-option-button:hover {
+    background-color: rgba(255, 94, 180, 0.5);
+}
+
+.option-button.active, .adv-option-button.active {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    box-shadow: 0 0 5px rgba(255, 94, 180, 0.6);
+}
+
+input[type="color"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 40px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch{
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 2px #ccff00;
+}
+
+input[type="color"]::-moz-color-swatch{
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 2px #ccff00;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.input-wrapper label {
+    margin-left: 5px;
+    font-size: 0.8rem;
+}
+
+select.adv-option-button {
+    padding: 3px;
+    height: 28px;
+    min-width: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px dotted #ccff00;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+select.adv-option-button:focus {
+    box-shadow: 0 0 5px rgba(255, 94, 180, 0.6);
+    border: 1px solid #ccff00;
+}
+
+input[type="color"] {
+    height: 28px;
+    width: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.letter-header {
+    border: 2px dotted #ccff00;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* To-section layout */
+.to-section {
+    display: flex;
+    align-items: center;
+}
+
+/* Label styling */
+.to-label {
+    flex: none;
+    margin-right: 10px;
+    font-family: "r41-alfabeta-72", serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: #333;
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+}
+
+/* Adjust input for label space */
+.to-section input {
+    flex: 1;
+    width: auto;
+    border: none;
+    background: transparent;
+    font-family: "r41-alfabeta-72", serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: #333;
+    outline: none;
+    padding: 5px 0;
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+}
+
+/* Content line-height fixed */
+.letter-content {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px dotted #ccff00;
+    margin-top:10px;
+    padding: 20px;
+    height:30vh;
+    width: 100%;
+}
+
+.send-button {
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: "r41-alfabeta-72", serif;
+    font-style: italic;
+    color: #333;
+    text-shadow: 0px 0px 3px #fff, 0px 0px 5px #fff;
+    background: radial-gradient( #ccff00 0%, rgba(255, 255, 255, 0) 70%);
+    border: none;
+    cursor: pointer;
+}
+
+.stamp-selector-title {
+    font-family: "r41-alfabeta-72", serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.stamp-selector-container {
+    height: auto;
+    max-height: 51vh;
+    overflow-y: auto;
+    border: 2px dotted #ccff00;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 스크롤바 스타일링 */
+.stamp-selector-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.stamp-selector-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stamp-selector-container::-webkit-scrollbar-thumb {
+    background-color: #ccff00;
+    border-radius: 10px;
+}
+
+.stamp-option {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.stamp-option:hover {
+    transform: scale(1.05);
+}
+
+.stamp-option img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Global scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccff00;
+    border-radius: 10px;
+}
+
+/* 이메일 전송 관련 스타일 */
+.loading-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px dotted rgba(255, 94, 180, 0.3);
+    border-radius: 50%;
+    border-top-color: #FF5EB4;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.message-container {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 2px dotted #FF5EB4;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-message, .error-message {
+    padding: 20px;
+}
+
+.success-message h3 {
+    color: #FF5EB4;
+    margin-bottom: 15px;
+}
+
+.error-message h3 {
+    color: #F44336;
+    margin-bottom: 15px;
+}
+
+#send-another, #try-again {
+    margin-top: 20px;
+    left: auto;
+    padding: 10px 20px;
+    background-color: rgba(255, 94, 180, 0.7);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#send-another:hover, #try-again:hover {
+    background-color: rgba(255, 94, 180, 1);
+}
+
+/* Places Section Styling for Horizontal Scroll */
+#places {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Hide horizontal overflow */
+    z-index: 5;
+    visibility: visible; /* Keep it visible as sticky */
+    background: none;
+}
+
+#placeswrapper {
+    position: relative;
+    height: 100%;
+    width: 150vw; /* Reduced from 350vw to compress total width */
+    display: flex;
+    align-items: center;
+    padding-left: 8vw; /* Slightly reduced padding */
+    padding-right: 8vw;
+    transform: translateX(0); /* Start at the beginning (will be updated by JS) */
+    will-change: transform;
+}
+
+/* Place Items */
+.place-item {
+    width: 35vw; /* 변경: 25vw → 35vw 더 넓게 조정 */
+    height: 65vh;
+    flex-shrink: 0; /* Prevent items from shrinking */
+    margin-right: -18px; /* 변경: 이미지 간 간격 추가 */
+    display: flex;
+    flex-direction: row; /* 변경: 세로에서 가로 배치로 */
+    position: relative;
+    background-color: rgba(255, 94, 180, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.7);
+    overflow: hidden;
+    border: 2px dotted #ccff00;
+    padding: 15px;
+    /* transition에 width 추가 */
+    transition: transform 0.3s ease, width 0.4s ease;
+}
+
+.place-item:hover {
+    width: 50vw; /* 변경: 45vw → 50vw 더 크게 확장 */
+}
+
+.place-item:hover .place-image {
+    width: 70%; /* 변경: 65% → 70% 더 크게 확장 */
+}
+
+.place-item:hover .place-content {
+    /* 추가: 호버 시 내용 영역의 너비 감소를 명시 (flex 축소) */
+    flex: 0.8; 
+    transition: flex 0.2s ease; /* flex 값 변화에 대한 전환 효과 추가 */
+}
+
+.place-number {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-family: "r41-alfabeta-72", sans-serif;
+    font-size: 3rem; /* 변경: 크기 축소 */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7); /* 변경: 투명도 추가 */
+    line-height: 1;
+    z-index: 1;
+}
+
+.place-image {
+    width: 45%; /* 변경: 너비를 45%로 설정 */
+    height: 100%; /* 변경: 높이를 95%로 설정 */
+    overflow: hidden;
+    border-radius: 0;
+    margin-right: 20px; /* 변경: 오른쪽 여백 늘림 */
+    transition: width 0.4s ease; /* width 전환 효과 추가 */
+}
+
+.place-item:hover .place-image {
+    width: 100%; /* 변경: 55% → 65% 더 크게 확장 */
+}
+
+.place-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.place-item:hover .place-image img {
+    transform: scale(1.05); /* 기존 스케일 효과 유지 */
+}
+
+.place-content {
+    flex: 1; /* 변경: 남은 공간 모두 차지 */
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    padding-top: 15px; /* 변경: 상단 여백 추가 */
+    height: 95%; /* 변경: 높이 설정 */
+    justify-content: space-between; /* 변경: 내용과 silhouette 사이 간격 확보 */
+}
+
+.place-content h3 {
+    font-family: "orbit", sans-serif;
+    font-size: 1.5rem; /* 변경: 폰트 크기 증가 */
+    margin-bottom: 15px;
+    color: #ccff00;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+.place-text {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 15px; /* 변경: 하단 여백 추가 */
+    max-height: 60%; /* 변경: 최대 높이 설정 */
+}
+
+.place-text p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #ccff00;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* 추가: silhouette 컨테이너 스타일 */
+.place-silhouettes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* 변경: 상단 여백 추가 */
+    padding: 10px 0;
+    align-items: center; /* 변경: 중앙 정렬 */
+}
+
+.place-silhouette {
+    width: 80px; /* 변경: 크기 조절 */
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    margin: 0; /* 변경: 좌우 여백 추가 */
+    filter: drop-shadow(0 0 5px rgba(255, 94, 180, 0.7));
+}
+
+/* Footer Section */
+#footer {
+    padding: 50px 20px;
+    min-height: 250px;
+    background: rgba(255, 255, 255, 0.4);
+    border-top: 2px dotted #ccff00;
+    bottom: 0;
+    opacity: 0; /* 초기에는 숨김 */
+    transform: translateY(30px); /* 위로 약간 이동하는 효과 */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* 빠른 애니메이션 */
+    position: relative;
+    z-index: 15; /* 높은 z-index로 다른 요소 위에 표시 */
+}
+
+#footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* 변경: flex-start -> center */
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 300px; /* 변경: 250px -> 300px */
+    margin-bottom: 20px;
+    /* 추가: 텍스트 줄바꿈 방지 */
+    white-space: nowrap; 
+}
+
+.footer-logo h3 {
+    font-size: 1.8rem; /* 변경: 2rem -> 1.8rem 약간 축소 */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.footer-info {
+    flex: 2;
+    min-width: 300px;
+    margin-bottom: 20px;
+    margin-left: 10vw; /* 왼쪽 마진 추가 */
+}
+
+.footer-info p {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-links {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw; /* 왼쪽 마진 추가 */
+}
+
+.footer-links a {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-links a:hover {
+    color: #ccff00;
+    transform: translateX(5px);
+}
+

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="서울의 오래된 골목길을 기념우표로 담아낸 프로젝트">
+    <title>골목으로부터, With Love</title>
+    <link rel="stylesheet" href="https://use.typekit.net/dtx1wwi.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 커스텀 커서 요소 추가 -->
+    <div id="cursor-follower"></div>
+    
+    <div id="fixed-background"></div>
+    <nav>
+        <img src="silhouette/silhouette5.png" id="navbutton">
+        <ul id="dropdown">
+            <li class="english-text">☞ About</li>
+            <li class="english-text">☞ Places</li>
+            <li class="english-text">☞ Stamps</li>
+            <li class="english-text">☞ Post office</li>
+        </ul>
+    </nav>
+    <main>
+        <section id="mainTitleBox">
+            <div id="mouse-background-glow"></div>
+            <h1 id="mainTitle">
+                <span id="fromAlley">
+                    <span class="char">골</span><span class="char">목</span><span class="char">으</span><span class="char">로</span><span class="char">부</span><span class="char">터</span><span class="char">,</span>
+                </span>
+                <span id="withLove" class="english-text">
+                    <span class="char">W</span><span class="char">i</span><span class="char">t</span><span class="char">h</span><span class="char">&nbsp;</span><span class="char">L</span><span class="char">o</span><span class="char">v</span><span class="char">e</span>
+                </span>
+            </h1>
+            <div id="silhouettes">
+                <img src="/silhouette/silhouette1.png" class="interactive-element">
+                <img src="/silhouette/silhouette2.png" class="interactive-element">
+                <img src="/silhouette/silhouette3.png" class="interactive-element">
+                <img src="/silhouette/silhouette4.png" class="interactive-element">
+                <img src="/silhouette/silhouette5.png" class="interactive-element">
+                <img src="/silhouette/silhouette6.png" class="interactive-element">
+                <img src="/silhouette/silhouette7.png" class="interactive-element">
+                <img src="/silhouette/silhouette8.png" class="interactive-element">
+                <img src="/silhouette/silhouette9.png" class="interactive-element">
+                <img src="/silhouette/silhouette10.png" class="interactive-element">
+                <img src="/silhouette/silhouette11.png" class="interactive-element">
+                <img src="/silhouette/silhouette12.png" class="interactive-element">
+                <img src="/silhouette/silhouette13.png" class="interactive-element">
+                <img src="/silhouette/silhouette14.png" class="interactive-element">
+                <img src="/silhouette/silhouette15.png" class="interactive-element">
+                <img src="/silhouette/silhouette16.png" class="interactive-element">
+                <img src="/silhouette/silhouette17.png" class="interactive-element">
+                <img src="/silhouette/silhouette18.png" class="interactive-element">
+                <img src="/silhouette/silhouette19.png" class="interactive-element">
+                <img src="/silhouette/silhouette20.png" class="interactive-element">
+            </div>
+        </section>
+        
+        <!-- About section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 id="about-title">About the project</h2>
+                <p>"골목으로부터, With Love"는
+                서울 구도심의 동네들을 직접 걸으며
+                골목 속 '작은 발견'들을 수집한 기록에서 출발한 프로젝트입니다.</p>
+                <br>
+                <p>서울의 오래된 골목에는 시간이 스쳐간 흔적들이 조용히 남아 있습니다.
+                낡은 벽, 그 위의 낙서, 누군가 두고 간 주인 없는 물건들까지.</p>
+                <br>
+                <p>누군가는 무심히 지나쳤을지 몰라도, 그 모두는 분명 서울의 일부였습니다. 
+                그 소소한 것들이 잊히지 않고, 오래도록 의미를 지니길 바라는 마음으로 
+                기념우표 형태의 그래픽으로 옮겨 담았습니다.</p>
+                <br>
+                <p>웹사이트의 '우체국' 페이지에서는
+                이 우표를 붙여 직접 이메일을 보낼 수도 있습니다.
+                아주 사적인 마음 하나, 오래된 골목의 공기와 함께 띄워보세요.</p>
+            </div>
+        </section>
+        
+        <!-- Sticky container for horizontal scroll effect -->
+        <div id="places-sticky-container" style="position: relative; height: 400vh;">
+            <!-- Places section -->
+            <section id="places">
+                <!-- Scroll indicators removed -->
+                <div id="places-title-container">
+                    <h2 id="places-title" class="english-text">Places</h2>
+                </div>
+                
+                <div id="placeswrapper">
+                    <div class="place-item" id="place1">
+                        <div class="place-image">
+                            <img src="/alleypic/충무로.png" alt="충무로">
+                        </div>
+                        <div class="place-content">
+                            <h3>충무로</h3>
+                            <div class="place-text">
+                                <p>충무로역 1번 출구를 나서면 시간이 잠시 멈춘 듯한 골목이 펼쳐진다.
+                                    좁은 도로를 따라 빽빽하게 자리한 인쇄소, 재단소, 제본소, 출력소들.
+                                    가게마다 오래된 간판과 손때 묻은 기계가 그대로다.</p>
+            
+                                <p>아침 일찍부터 기계 돌아가는 소리, 종이 냄새, 사장님들의 진한 커피 냄새가 섞여 있다.
+                                    빠르게 변화하는 도심 속에서도 충무로 인쇄골목은 소량 제작, 수작업의 정성,
+                                    손발 맞춘 협업이 이어지는 몇 안 되는 곳이다.</p>
+                            </div>
+                            <div class="place-silhouettes">
+                                <img src="/silhouette/silhouette18.png" alt="Silhouette 1" class="place-silhouette">
+                                <img src="/silhouette/silhouette2.png" alt="Silhouette 2" class="place-silhouette">
+                                <img src="/silhouette/silhouette19.png" alt="Silhouette 3" class="place-silhouette">
+                                <img src="/silhouette/silhouette20.png" alt="Silhouette 4" class="place-silhouette">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="place-item" id="place2">
+                        <div class="place-image">
+                            <img src="/alleypic/을지로.png" alt="을지로">
+                        </div>
+                        <div class="place-content">
+                            <h3>을지로</h3>
+                            <div class="place-text">
+                                <p>을지로는 공구상가, 인쇄소, 철물점들이 이어진 서울의 대표적인 산업 골목이다.
+                                    좁은 골목길마다 낡은 간판과 금속 재질의 문들이 겹겹이 쌓여 있고,
+                                    작은 작업장 안에서는 여전히 기계가 돌아가고 사람이 손으로 무언가를 만들어낸다.</p>
+            
+                                <p>최근 몇 년 사이, 을지로는 이런 오래된 분위기에 매력을 느낀 젊은 세대가 모이면서
+                                    낡은 골목 안에 카페, 갤러리, 독립 서점 같은 새로운 공간들이 스며들기 시작했다.</p>
+                            </div>
+                            <div class="place-silhouettes">
+                                <img src="/silhouette/silhouette1.png" alt="Silhouette 5" class="place-silhouette">
+                                <img src="/silhouette/silhouette6.png" alt="Silhouette 6" class="place-silhouette">
+                                <img src="/silhouette/silhouette3.png" alt="Silhouette 7" class="place-silhouette">
+                                <img src="/silhouette/silhouette4.png" alt="Silhouette 8" class="place-silhouette">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="place-item" id="place3">
+                        <div class="place-image">
+                            <img src="/alleypic/동묘.png" alt="동묘">
+                        </div>
+                        <div class="place-content">
+                            <h3>동묘</h3>
+                            <div class="place-text">
+                                <p>동묘 구제시장은 황학동 골동품 시장에서 갈라져 나온 시장으로,
+                                    지금은 중고 의류, 골동품, 장난감, 카메라, 잡화 등 다양한 물건들이 노점마다 가득 쌓여 있다.</p>
+            
+                                <p>이곳은 '노년층의 홍대'라고 불릴 만큼, 어르신들이 자유롭게 문화를 즐기는 공간이자,
+                                    빈티지 의류를 찾는 젊은 층이 뒤섞여 독특한 활기를 만들어내는 곳이기도 하다.</p>
+                            </div>
+                            <div class="place-silhouettes">
+                                <img src="/silhouette/silhouette9.png" alt="Silhouette 9" class="place-silhouette">
+                                <img src="/silhouette/silhouette5.png" alt="Silhouette 10" class="place-silhouette">
+                                <img src="/silhouette/silhouette7.png" alt="Silhouette 11" class="place-silhouette">
+                                <img src="/silhouette/silhouette8.png" alt="Silhouette 12" class="place-silhouette">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="place-item" id="place4">
+                        <div class="place-image">
+                            <img src="/alleypic/종로.png" alt="종로">
+                        </div>
+                        <div class="place-content">
+                            <h3>종로</h3>
+                            <div class="place-text">
+                                <p>종로는 서울의 가장 오래된 거리이자, 시대마다 다른 얼굴을 품어온 곳이다.
+                                    종묘, 광장시장, 낙원상가 같은 장소들이 서로 겹치며,
+                                    한편에는 국악기점, 한약방, 인쇄소 같은 옛 상업시설들이 여전히 버티고 있다.</p>
+                                    
+                                <p>낮에는 물건을 사고파는 일상이 이어지고,
+                                    저녁이 되면 가게마다 불빛이 켜지며 골목에는 사람들의 말소리와 음식 냄새가 번진다.</p>
+                            </div>
+                            <div class="place-silhouettes">
+                                <img src="/silhouette/silhouette17.png" alt="Silhouette 13" class="place-silhouette">
+                                <img src="/silhouette/silhouette14.png" alt="Silhouette 14" class="place-silhouette">
+                                <img src="/silhouette/silhouette15.png" alt="Silhouette 15" class="place-silhouette">
+                                <img src="/silhouette/silhouette16.png" alt="Silhouette 16" class="place-silhouette">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="place-item" id="place5">
+                        <div class="place-image">
+                            <img src="/alleypic/동대문.png" alt="동대문">
+                        </div>
+                        <div class="place-content">
+                            <h3>동대문</h3>
+                            <div class="place-text">
+                                <p>동대문은 서울에서 가장 오래된 생산의 거리 중 하나로,
+                                    지금도 거대한 원단 시장과 봉제 골목, 포장재 상가들이 골목마다 촘촘히 이어진다.</p>
+            
+                                <p>천과 실이 쌓여 있는 작업장, 철제 선반 위에 어지럽게 놓인 도구들,
+                                    밤늦게까지 켜진 작업등 아래에서 움직이는 사람들의 손길은 이 거리의 일상을 만든다.</p>
+                            </div>
+                            <div class="place-silhouettes">
+                                <img src="/silhouette/silhouette10.png" alt="Silhouette 17" class="place-silhouette">
+                                <img src="/silhouette/silhouette11.png" alt="Silhouette 18" class="place-silhouette">
+                                <img src="/silhouette/silhouette12.png" alt="Silhouette 19" class="place-silhouette">
+                                <img src="/silhouette/silhouette13.png" alt="Silhouette 20" class="place-silhouette">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Stamps Section -->
+        <section id="stamps">
+            <h2 class="english-text">Stamps</h2>
+            <div id="stampwrapper">
+                <!-- Row 1 -->
+                <div id="stamp1" class="stamp">
+                    <img src="/stamp/cmr1.png">
+                </div>
+                <div id="stamp5" class="stamp">
+                    <img src="/stamp/ejr1.png">
+                </div>
+                <div id="stamp9" class="stamp">
+                    <img src="/stamp/dm1.png">
+                </div>
+                <div id="stamp13" class="stamp">
+                    <img src="/stamp/jr1.png">
+                </div>
+                <div id="stamp17" class="stamp">
+                    <img src="/stamp/ddm1.png">
+                </div>
+                
+                <!-- Row 2 -->
+                <div id="stamp2" class="stamp">
+                    <img src="/stamp/cmr2.png">
+                </div>
+                <div id="stamp6" class="stamp">
+                    <img src="/stamp/ejr2.png">
+                </div>
+                <div id="stamp10" class="stamp">
+                    <img src="/stamp/dm2.png">
+                </div>
+                <div id="stamp14" class="stamp">
+                    <img src="/stamp/jr2.png">
+                </div>
+                <div id="stamp18" class="stamp">
+                    <img src="/stamp/ddm2.png">
+                </div>
+                
+                <!-- Row 3 -->
+                <div id="stamp3" class="stamp">
+                    <img src="/stamp/cmr3.png">
+                </div>
+                <div id="stamp7" class="stamp">
+                    <img src="/stamp/ejr3.png">
+                </div>
+                <div id="stamp11" class="stamp">
+                    <img src="/stamp/dm3.png">
+                </div>
+                <div id="stamp15" class="stamp">
+                    <img src="/stamp/jr3.png">
+                </div>
+                <div id="stamp19" class="stamp">
+                    <img src="/stamp/ddm3.png">
+                </div>
+                
+                <!-- Row 4 -->
+                <div id="stamp4" class="stamp">
+                    <img src="/stamp/cmr4.png">
+                </div>
+                <div id="stamp8" class="stamp">
+                    <img src="/stamp/ejr4.png">
+                </div>
+                <div id="stamp12" class="stamp">
+                    <img src="/stamp/dm4.png">
+                </div>
+                <div id="stamp16" class="stamp">
+                    <img src="/stamp/jr4.png">
+                </div>
+                <div id="stamp20" class="stamp">
+                    <img src="/stamp/ddm4.png">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Letter-form sticky container for horizontal scroll effect -->
+        <div id="letter-form-sticky-container" style="position: relative; height: 200vh;">
+            <!-- Letter Form Section (Post Office) -->
+            <section id="letter-form" class="post-office-section">
+                <h2 class="section-title">Post Office</h2>
+                <div class="letter-container">
+                    <div class="letter-main">
+                        <div class="letter-header">
+                            <div class="to-section">
+                                <label for="to-input" class="to-label">To.</label>
+                                <input type="email" id="to-input" name="to" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="letter-body-container">
+                            <!-- 여기부터 옵션창 -->
+                            <div class="options">
+                                <button id="bold" class="option-button format">
+                                    <i class="fa-solid fa-bold"></i>
+                                </button>
+                                <button id="superscript" class="option-button script">
+                                    <i class="fa-solid fa-superscript"></i>
+                                </button>
+                                <button id="subscript" class="option-button script">
+                                    <i class="fa-solid fa-subscript"></i>
+                                </button>
+                                <button id="insertOrderedList" class="option-button">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                </button>
+                                <button id="insertUnorderedList" class="option-button">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                </button>
+                                <button id="undo" class="option-button">
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                </button>
+                                <button id="redo" class="option-button">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                </button>
+                                <button id="createLink" class="adv-option-button">
+                                    <i class="fa-solid fa-link"></i>
+                                </button>
+                                <button id="unLink" class="option-button">
+                                    <i class="fa-solid fa-link-slash"></i>
+                                </button>
+                                <button id="justifyLeft" class="option-button align">
+                                    <i class="fa-solid fa-align-left"></i>
+                                </button>
+                                <button id="justifyCenter" class="option-button align">
+                                    <i class="fa-solid fa-align-center"></i>
+                                </button>
+                                <button id="justifyRight" class="option-button align">
+                                    <i class="fa-solid fa-align-right"></i>
+                                </button>
+                                <button id="indent" class="option-button spacing">
+                                    <i class="fa-solid fa-indent"></i>
+                                </button>
+                                <button id="outdent" class="option-button spacing">
+                                    <i class="fa-solid fa-outdent"></i>
+                                </button>
+                                <select id="fontSize" class="adv-option-button"></select>
+                
+                                <div class="input-wrapper">
+                                    <input type="color" id="foreColor" class="adv-option-button">
+                                    <label for="foreColor">Font color</label>
+                                </div>
+                                <!-- 여기까지가 옵션창 -->
+                            </div>
+                            <div class="letter-content-wrapper">
+                                <div class="letter-body" contenteditable="true" spellcheck="false">
+                                    편지를 작성하고, 우표를 붙여 마음을 전해보세요.
+                                </div>
+                                <!-- 우표를 올려놓을 별도 레이어 추가 -->
+                                <div class="stamps-layer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 스탬프 선택 영역 (우측 세로 스크롤) -->
+                    <div class="stamp-selector">
+                        <div class="stamp-selector-title">Stamps</div>
+                        <div class="stamp-selector-container">
+                            <!-- 스탬프 복제본 20개 (원본에서 가져온 것) -->
+                            <div class="stamp-option">
+                                <img src="/stamp/cmr1.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/cmr2.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/cmr3.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/cmr4.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ejr1.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ejr2.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ejr3.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ejr4.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/dm1.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/dm2.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/dm3.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/dm4.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/jr1.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/jr2.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/jr3.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/jr4.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ddm1.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ddm2.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ddm3.png">
+                            </div>
+                            <div class="stamp-option">
+                                <img src="/stamp/ddm4.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="send-button">Send</button>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Section - moved outside of main -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>골목으로부터, <span class="english-text">With Love</span></h3>
+            </div>
+            <div class="footer-info">
+                <p>© 2025 골목으로부터, With Love</p>
+
+                <p>Designed by Chaeyeon Jin</p>
+            </div>
+            <div class="footer-links">
+                <!-- Links removed -->
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 스탬프 상세 정보 창 -->
+    <div id="stamp-detail">
+        <button id="close-detail"></button>
+        <div id="detail-content">
+            <!-- 동적으로 내용이 채워질 공간 -->
+        </div>
+    </div>
+    
+    <!-- 원본 이미지 표시 컨테이너 -->
+    <div id="original-image-container">
+        <img id="original-image" src="" alt="원본 이미지">
+    </div>
+    
+    <!-- EmailJS와 html2canvas 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
