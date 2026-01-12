@@ -81,6 +81,42 @@ nav {
     
 }
 
+.lang-toggle-btn {
+    display: block;
+    margin: 10px 0 10px 10px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 20px;
+    font-family: "r41-alfabeta-72", sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.lang-toggle-btn {
+    display: block;
+    margin: 10px 0 10px 10px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 20px;
+    font-family: "r41-alfabeta-72", sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
 #dropdown {
     list-style: none;
     padding: 10px;
@@ -343,7 +379,7 @@ body.detail-open #stamps {
 
 body.detail-open #stamps h2 {
     transform: translateX(0); /* 중앙에 유지 */
-    width: 50%; /* 상세창 열렸을 때 더 넓게 */
+    width: 50%; /* 상세 창 열렸을 때 더 넓게 */
     margin: 0 auto 2rem auto; /* 중앙 정렬로 변경 */
     text-align: center; /* 텍스트도 중앙 정렬 */
 }
@@ -736,6 +772,7 @@ input[type="color"]{
     width: 40px;
     height: 28px;
     border: none;
+
     cursor: pointer;
 }
 
@@ -1193,8 +1230,28 @@ input[type="color"] {
 .footer-links {
     flex: 1;
     min-width: 250px;
+/* Language Toggle Styles - English Mode */
+body.lang-en {
+    font-family: "r41-alfabeta-72", sans-serif;
+    letter-spacing: normal;
+    word-break: break-word;
+}
     display: flex;
-    flex-direction: column;
+body.lang-en .place-content h3,
+body.lang-en .place-text p,
+body.lang-en .about-content p,
+body.lang-en .footer-info p,
+body.lang-en .footer-links a,
+body.lang-en .detail-content p,
+body.lang-en #detail-content h3,
+body.lang-en #detail-content p {
+    font-family: "r41-alfabeta-72", sans-serif;
+}
+
+/* Adjust line-height for English text if needed */
+body.lang-en p {
+    line-height: 1.6;
+}    flex-direction: column;
     margin-left: 10vw; /* 왼쪽 마진 추가 */
 }
 
@@ -1212,3 +1269,25 @@ input[type="color"] {
     transform: translateX(5px);
 }
 
+/* Language Toggle Styles - English Mode */
+body.lang-en {
+    font-family: "r41-alfabeta-72", sans-serif;
+    letter-spacing: normal;
+    word-break: break-word;
+}
+
+body.lang-en .place-content h3,
+body.lang-en .place-text p,
+body.lang-en .about-content p,
+body.lang-en .footer-info p,
+body.lang-en .footer-links a,
+body.lang-en .detail-content p,
+body.lang-en #detail-content h3,
+body.lang-en #detail-content p {
+    font-family: "r41-alfabeta-72", sans-serif;
+}
+
+/* Adjust line-height for English text if needed */
+body.lang-en p {
+    line-height: 1.6;
+}

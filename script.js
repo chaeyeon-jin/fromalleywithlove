@@ -17,9 +17,89 @@ document.addEventListener('DOMContentLoaded', () => {
     const placedAreas = [];
     const padding = 60; // Exclusion zone padding in pixels
     
+    // --- Language Translation Data ---
+    const translations = {
+        ko: {
+            "nav-about": "☞ About",
+            "nav-places": "☞ Places",
+            "nav-stamps": "☞ Stamps",
+            "nav-postoffice": "☞ Post office",
+            "main-title-1": `<span class="char">골</span><span class="char">목</span><span class="char">으</span><span class="char">로</span><span class="char">부</span><span class="char">터</span><span class="char">,</span>`,
+            "about-title": "About the project",
+            "about-text-1": `"골목으로부터, With Love"는<br>서울 구도심의 동네들을 직접 걸으며<br>골목 속 '작은 발견'들을 수집한 기록에서 출발한 프로젝트입니다.`,
+            "about-text-2": `서울의 오래된 골목에는 시간이 스쳐간 흔적들이 조용히 남아 있습니다.<br>낡은 벽, 그 위의 낙서, 누군가 두고 간 주인 없는 물건들까지.`,
+            "about-text-3": `누군가는 무심히 지나쳤을지 몰라도, 그 모두는 분명 서울의 일부였습니다.<br>그 소소한 것들이 잊히지 않고, 오래도록 의미를 지니길 바라는 마음으로<br>기념우표 형태의 그래픽으로 옮겨 담았습니다.`,
+            "about-text-4": `웹사이트의 '우체국' 페이지에서는<br>이 우표를 붙여 직접 이메일을 보낼 수도 있습니다.<br>아주 사적인 마음 하나, 오래된 골목의 공기와 함께 띄워보세요.`,
+            "places-title": "Places",
+            "place-cmr-title": "충무로",
+            "place-cmr-desc-1": "충무로역 1번 출구를 나서면 시간이 잠시 멈춘 듯한 골목이 펼쳐진다. 좁은 도로를 따라 빽빽하게 자리한 인쇄소, 재단소, 제본소, 출력소들. 가게마다 오래된 간판과 손때 묻은 기계가 그대로다.",
+            "place-cmr-desc-2": "아침 일찍부터 기계 돌아가는 소리, 종이 냄새, 사장님들의 진한 커피 냄새가 섞여 있다. 빠르게 변화하는 도심 속에서도 충무로 인쇄골목은 소량 제작, 수작업의 정성, 손발 맞춘 협업이 이어지는 몇 안 되는 곳이다.",
+            "place-ejr-title": "을지로",
+            "place-ejr-desc-1": "을지로는 공구상가, 인쇄소, 철물점들이 이어진 서울의 대표적인 산업 골목이다. 좁은 골목길마다 낡은 간판과 금속 재질의 문들이 겹겹이 쌓여 있고, 작은 작업장 안에서는 여전히 기계가 돌아가고 사람이 손으로 무언가를 만들어낸다.",
+            "place-ejr-desc-2": "최근 몇 년 사이, 을지로는 이런 오래된 분위기에 매력을 느낀 젊은 세대가 모이면서 낡은 골목 안에 카페, 갤러리, 독립 서점 같은 새로운 공간들이 스며들기 시작했다.",
+            "place-dm-title": "동묘",
+            "place-dm-desc-1": "동묘 구제시장은 황학동 골동품 시장에서 갈라져 나온 시장으로, 지금은 중고 의류, 골동품, 장난감, 카메라, 잡화 등 다양한 물건들이 노점마다 가득 쌓여 있다.",
+            "place-dm-desc-2": "이곳은 '노년층의 홍대'라고 불릴 만큼, 어르신들이 자유롭게 문화를 즐기는 공간이자, 빈티지 의류를 찾는 젊은 층이 뒤섞여 독특한 활기를 만들어내는 곳이기도 하다.",
+            "place-jr-title": "종로",
+            "place-jr-desc-1": "종로는 서울의 가장 오래된 거리이자, 시대마다 다른 얼굴을 품어온 곳이다. 종묘, 광장시장, 낙원상가 같은 장소들이 서로 겹치며, 한편에는 국악기점, 한약방, 인쇄소 같은 옛 상업시설들이 여전히 버티고 있다.",
+            "place-jr-desc-2": "낮에는 물건을 사고파는 일상이 이어지고, 저녁이 되면 가게마다 불빛이 켜지며 골목에는 사람들의 말소리와 음식 냄새가 번진다.",
+            "place-ddm-title": "동대문",
+            "place-ddm-desc-1": "동대문은 서울에서 가장 오래된 생산의 거리 중 하나로, 지금도 거대한 원단 시장과 봉제 골목, 포장재 상가들이 골목마다 촘촘히 이어진다.",
+            "place-ddm-desc-2": "천과 실이 쌓여 있는 작업장, 철제 선반 위에 어지럽게 놓인 도구들, 밤늦게까지 켜진 작업등 아래에서 움직이는 사람들의 손길은 이 거리의 일상을 만든다.",
+            "stamps-title": "Stamps",
+            "postoffice-title": "Post Office",
+            "label-to": "To.",
+            "label-font-color": "Font color",
+            "letter-placeholder": "편지를 작성하고, 우표를 붙여 마음을 전해보세요.",
+            "stamps-selector-title": "Stamps",
+            "btn-send": "Send",
+            "footer-title": "골목으로부터,",
+            "footer-copyright": "골목으로부터,"
+        },
+        en: {
+            "nav-about": "☞ About",
+            "nav-places": "☞ Places",
+            "nav-stamps": "☞ Stamps",
+            "nav-postoffice": "☞ Post office",
+            "main-title-1": `<span class="char">F</span><span class="char">r</span><span class="char">o</span><span class="char">m</span><span class="char">&nbsp;</span><span class="char">A</span><span class="char">l</span><span class="char">l</span><span class="char">e</span><span class="char">y</span><span class="char">,</span>`,
+            "about-title": "About the project",
+            "about-text-1": `"From Alley, With Love" is a project that started from the records of collecting 'small discoveries' in the alleys while walking through the old neighborhoods of downtown Seoul.`,
+            "about-text-2": `Traces of passing time remain quietly in the old alleys of Seoul. Old walls, graffiti on them, and ownerless objects left behind by someone.`,
+            "about-text-3": `Someone might have passed by indifferently, but all of them were definitely part of Seoul. We transferred these small things into graphics in the form of commemorative stamps with the hope that they would not be forgotten and would have meaning for a long time.`,
+            "about-text-4": `On the 'Post Office' page of the website, you can send an email directly with this stamp. Send a very private heart along with the air of an old alley.`,
+            "places-title": "Places",
+            "place-cmr-title": "Chungmuro",
+            "place-cmr-desc-1": "Leaving Exit 1 of Chungmuro Station, an alley where time seems to have stopped unfolds. Printing shops, cutting shops, bookbinding shops, and output shops are densely located along the narrow road. Old signs and hand-stained machines remain the same in every shop.",
+            "place-cmr-desc-2": "From early morning, the sound of machines running, the smell of paper, and the strong smell of coffee from the owners are mixed. Even in the rapidly changing city center, Chungmuro Printing Alley is one of the few places where small-quantity production, the sincerity of manual work, and hand-to-foot collaboration continue.",
+            "place-ejr-title": "Euljiro",
+            "place-ejr-desc-1": "Euljiro is a representative industrial alley in Seoul where tool shops, printing shops, and hardware stores are connected. Old signboards and metal doors are piled up in layers in every narrow alley, and machines are still running in small workshops and people are making something by hand.",
+            "place-ejr-desc-2": "In recent years, as the younger generation, attracted by this old atmosphere, has gathered in Euljiro, new spaces such as cafes, galleries, and independent bookstores have begun to permeate into the old alleys.",
+            "place-dm-title": "Dongmyo",
+            "place-dm-desc-1": "Dongmyo Vintage Market is a market that split off from Hwanghak-dong Antique Market, and now various items such as used clothing, antiques, toys, cameras, and sundries are piled up at every street stall.",
+            "place-dm-desc-2": "This place is called 'Hongdae for the elderly', a space where the elderly freely enjoy culture, and it is also a place where young people looking for vintage clothing mingle to create a unique vitality.",
+            "place-jr-title": "Jongno",
+            "place-jr-desc-1": "Jongno is the oldest street in Seoul and a place that has embraced a different face in every era. Places like Jongmyo Shrine, Gwangjang Market, and Nagwon Shopping Center overlap each other, while old commercial facilities such as Korean traditional instrument shops, oriental medicine clinics, and printing shops still stand on one side.",
+            "place-jr-desc-2": "During the day, daily life of buying and selling goods continues, and in the evening, lights are turned on in every shop, and the sound of people talking and the smell of food spreads in the alley.",
+            "place-ddm-title": "Dongdaemun",
+            "place-ddm-desc-1": "Dongdaemun is one of the oldest streets of production in Seoul, and even now, huge fabric markets, sewing alleys, and packaging material shops are closely connected in every alley.",
+            "place-ddm-desc-2": "Workshops piled with cloth and thread, tools cluttered on steel shelves, and the hands of people moving under work lights turned on until late at night create the daily life of this street.",
+            "stamps-title": "Stamps",
+            "postoffice-title": "Post Office",
+            "label-to": "To.",
+            "label-font-color": "Font color",
+            "letter-placeholder": "Write a letter, attach a stamp, and convey your heart.",
+            "stamps-selector-title": "Stamps",
+            "btn-send": "Send",
+            "footer-title": "From Alley,",
+            "footer-copyright": "From Alley,"
+        }
+    };
+    
+    let currentLang = 'ko'; // Default language
+
     // 배경을 항상 radial-gradient로 유지
     if (fixedBackground) {
-        fixedBackground.style.background = 'radial-gradient(#FF5EB4 30%, #cfcfcf 70%)';
+        fixedBackground.style.background = 'radial-gradient(rgb(255, 154, 201) 30%, #cfcfcf 70%)';
     }
     
     // 커스텀 커서 요소
@@ -27,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 타이틀 인터랙션 요소
     const mainTitleBox = document.getElementById('mainTitleBox');
-    const titleChars = document.querySelectorAll('#mainTitle .char');
+    let titleChars = document.querySelectorAll('#mainTitle .char');
     
     // 마우스 움직임 추적 변수
     let mouseX = 0;
@@ -306,6 +386,67 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('커서 호버 효과 설정 완료:', interactiveElements.length, '개의 요소에 적용됨');
     }
     
+    // 언어 전환 함수
+    function switchLanguage(lang) {
+        if (!translations[lang]) return;
+        currentLang = lang;
+        
+        // body 클래스 업데이트 (폰트 변경용)
+        if (lang === 'en') {
+            document.body.classList.add('lang-en');
+        } else {
+            document.body.classList.remove('lang-en');
+        }
+        
+        // 토글 버튼 텍스트 업데이트
+        const toggleBtn = document.getElementById('lang-toggle');
+        if (toggleBtn) {
+            toggleBtn.textContent = lang === 'en' ? 'KO' : 'EN';
+        }
+        
+        // 일반 텍스트 요소 업데이트
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                // innerHTML을 사용하여 HTML 태그(span 등)를 포함한 텍스트 적용
+                el.innerHTML = translations[lang][key];
+                
+                // main-title-1의 경우 글자 효과 재적용
+                if (key === 'main-title-1') {
+                    setTimeout(() => {
+                        // 전역 변수 titleChars 업데이트
+                        titleChars = document.querySelectorAll('#mainTitle .char');
+                    }, 0);
+                }
+            }
+        });
+        
+        // place-content h3 요소들에 대해 폰트 적용을 위해 클래스 처리가 필요할 수 있으나
+        // CSS에서 body.lang-en 하위 요소로 처리했으므로 자동 적용됨.
+        
+        // placeholder 속성 업데이트 (입력 필드 등)
+        const inputs = document.querySelectorAll('input[data-i18n-placeholder], textarea[data-i18n-placeholder]');
+        inputs.forEach(el => {
+             const key = el.getAttribute('data-i18n-placeholder');
+             if (translations[lang][key]) {
+                 el.placeholder = translations[lang][key];
+             }
+        });
+        
+        // contenteditable 요소의 플레이스홀더 텍스트 처리 (직접 내용을 바꿈)
+        // 위에서 data-i18n으로 처리됨.
+    }
+    
+    // 언어 토글 버튼 이벤트 리스너
+    const langToggleBtn = document.getElementById('lang-toggle');
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            const newLang = currentLang === 'ko' ? 'en' : 'ko';
+            switchLanguage(newLang);
+        });
+    }
+    
     // 초기화 함수
     function initializeEffects() {
         // 커서 애니메이션 시작
@@ -353,26 +494,146 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 스탬프 상세 정보 데이터 (실제로는 더 많은 정보가 있을 수 있음)
     const stampData = {
-        'stamp1': { title: '<br> <br>발견 장소: 충무로', description: '비오는 날 길바닥에 놓여있던 수많은 종이심들.<br>충무로 인쇄골목만의 독특한 흔적입니다.', code: 'cmr1' },
-        'stamp2': { title: '<br> <br> <br> 발견 장소: 충무로', description: '밝은 미소의 어느 간판.<br> 바빠도 웃으면서 살아요, 다들 스마일~', code: 'cmr2' },
-        'stamp3': { title: '<br> <br> <br> 발견 장소: 충무로', description: '인쇄소 앞에서 반겨주던 세 신사들.<br> 여러분 모두 어서오십시요!!', code: 'cmr3' },
-        'stamp4': { title: '<br>발견 장소: 충무로', description: '교통 고깔의 엄청난 변신.<br> 플라스틱 테이블과 얽혀 조형물로 탄생했습니다.', code: 'cmr4' },
-        'stamp5': { title: '<br> <br> <br> 발견 장소: 을지로', description: '을지로 노포의 테이블. <br> 서로 대비되는 색을 가졌지만 사이좋은 짝꿍같은 둘.', code: 'ejr1' },
-        'stamp6': { title: '<br> <br> <br> 발견 장소: 을지로', description: '어느 철물점 앞의 표지판. <br> 스프레이 프린트는 항상 색다른 질감을 만들어냅니다.', code: 'ejr2' },
-        'stamp7': { title: '<br> <br> <br> 발견 장소: 을지로', description: '거친 질감의 파란 알맹이들. <br> 묘하게 빛바랜 색감은 회색빛 하늘과 어우러집니다.', code: 'ejr3' },
-        'stamp8': { title: '<br> <br> <br> 발견 장소: 을지로', description: '호프집 테이블과 의자. <br> 서로 포개어진 모습은 새로운 실루엣을 제시합니다.', code: 'ejr4' },
-        'stamp9': { title: '<br> <br><br> <br> 발견 장소: 동묘', description: '벼룩시장에서 발견한 연꽃 사진.<br> 새 것빼고 전부 다 있는 동묘시장.', code: 'dm1' },
-        'stamp10': { title:'<br> <br> <br> 발견 장소: 동묘', description: '주인없는 카메라들. <br> 이제는 낡아버린 그들의 추억.', code: 'dm2' },
-        'stamp11': { title: '<br> 발견 장소: 동묘', description: '모든 걸 다 지워주는 옥쏠라. <br> 비누를 섞어 문질러주세요.', code: 'dm3' },
-        'stamp12': { title: '<br> <br> <br> <br> 발견 장소: 동묘', description: '브이. 이게 바로 히트상품. <br> 런닝이 단돈 오천원.', code: 'dm4' },
-        'stamp13': { title: '<br> <br> 발견 장소: 종로 5가', description: '보기만 해도 발이 아픈 지압슬리퍼.<br> 이걸 신으면 건강해지나요?', code: 'jr1' },
-        'stamp14': { title: '발견 장소: 종로 5가', description: '의료기 도매합니다. <br> 노란 테이프로 서로 엮여있는 간판과 벽돌들.', code: 'jr2' },
-        'stamp15': { title: '<br> <br> 발견 장소: 종로 5가', description: '문닫은 가게 앞의 화초. <br> 아름다운 붉은빛을 뽐내며 묵묵히 자리를 지킵니다.', code: 'jr3' },
-        'stamp16': { title: '<br> <br> <br><br> 발견 장소: 종로 5가', description: '로또집도 주일은 쉽니다. <br> 안내문 뒤로 빼곡히 자리잡은 로또용지의 글씨들.', code: 'jr4' },
-        'stamp17': { title: '발견 장소: 동대문', description: '도장집의 거대한 도장 모양 간판.<br> 강렬한 빨간색이 눈길을 끕니다.', code: 'dd1' },
-        'stamp18': { title: '<br> <br> <br> 발견 장소: 동대문', description: '원단시장 안에서 발견한 원단 조각들. <br> 겹겹이 쌓여가며 하나의 형태를 이루고 있습니다.', code: 'dd2' },
-        'stamp19': { title: '<br> <br><br> 발견 장소: 동대문', description: '사주, 신점, 타로 모두 다 봐드립니다. <br> 동대문 길거리에서 발견한 간판의 모습입니다.', code: 'dd3' },
-        'stamp20': { title: '<br> <br> <br> <br> 발견 장소: 동대문', description: '몸에 빨간 리본을 감고있는 돌고래. <br> 아, 진짜 돌고래는 아니고 돌고래 풍선.', code: 'dd4' },
+        'stamp1': { 
+            title: '<br> <br>발견 장소: 충무로', 
+            description: '비오는 날 길바닥에 놓여있던 수많은 종이심들.<br>충무로 인쇄골목만의 독특한 흔적입니다.', 
+            title_en: '<br> <br>Location: Chungmuro', 
+            description_en: 'Numerous paper cores lying on the street on a rainy day.<br>A unique trace of Chungmuro Printing Alley.',
+            code: 'cmr1' 
+        },
+        'stamp2': { 
+            title: '<br> <br> <br> 발견 장소: 충무로', 
+            description: '밝은 미소의 어느 간판.<br> 바빠도 웃으면서 살아요, 다들 스마일~', 
+            title_en: '<br> <br> <br> Location: Chungmuro', 
+            description_en: 'A signboard with a bright smile.<br>Even if busy, let\'s smile, everyone smile~',
+            code: 'cmr2' 
+        },
+        'stamp3': { 
+            title: '<br> <br> <br> 발견 장소: 충무로', 
+            description: '인쇄소 앞에서 반겨주던 세 신사들.<br> 여러분 모두 어서오십시요!!', 
+            title_en: '<br> <br> <br> Location: Chungmuro', 
+            description_en: 'Three gentlemen welcoming in front of the print shop.<br>Welcome everyone!!',
+            code: 'cmr3' 
+        },
+        'stamp4': { 
+            title: '<br>발견 장소: 충무로', 
+            description: '교통 고깔의 엄청난 변신.<br> 플라스틱 테이블과 얽혀 조형물로 탄생했습니다.', 
+            title_en: '<br>Location: Chungmuro', 
+            description_en: 'A huge transformation of a traffic cone.<br>Entangled with a plastic table, it was born as a sculpture.',
+            code: 'cmr4' 
+        },
+        'stamp5': { 
+            title: '<br> <br> <br> 발견 장소: 을지로', 
+            description: '을지로 노포의 테이블. <br> 서로 대비되는 색을 가졌지만 사이좋은 짝꿍같은 둘.', 
+            title_en: '<br> <br> <br> Location: Euljiro', 
+            description_en: 'Tables of an old shop in Euljiro.<br>Two like good partners despite having contrasting colors.',
+            code: 'ejr1' 
+        },
+        'stamp6': { 
+            title: '<br> <br> <br> 발견 장소: 을지로', 
+            description: '어느 철물점 앞의 표지판. <br> 스프레이 프린트는 항상 색다른 질감을 만들어냅니다.', 
+            title_en: '<br> <br> <br> Location: Euljiro', 
+            description_en: 'A sign in front of a hardware store.<br>Spray prints always create a different texture.',
+            code: 'ejr2' 
+        },
+        'stamp7': { 
+            title: '<br> <br> <br> 발견 장소: 을지로', 
+            description: '거친 질감의 파란 알맹이들. <br> 묘하게 빛바랜 색감은 회색빛 하늘과 어우러집니다.', 
+            title_en: '<br> <br> <br> Location: Euljiro', 
+            description_en: 'Blue grains with rough texture.<br>The strangely faded colors blend with the gray sky.',
+            code: 'ejr3' 
+        },
+        'stamp8': { 
+            title: '<br> <br> <br> 발견 장소: 을지로', 
+            description: '호프집 테이블과 의자. <br> 서로 포개어진 모습은 새로운 실루엣을 제시합니다.', 
+            title_en: '<br> <br> <br> Location: Euljiro', 
+            description_en: 'Pub tables and chairs.<br>The stacked appearance suggests a new silhouette.',
+            code: 'ejr4' 
+        },
+        'stamp9': { 
+            title: '<br> <br><br> <br> 발견 장소: 동묘', 
+            description: '벼룩시장에서 발견한 연꽃 사진.<br> 새 것빼고 전부 다 있는 동묘시장.', 
+            title_en: '<br> <br><br> <br> Location: Dongmyo', 
+            description_en: 'A lotus photo found at the flea market.<br>Dongmyo Market has everything except new things.',
+            code: 'dm1' 
+        },
+        'stamp10': { 
+            title:'<br> <br> <br> 발견 장소: 동묘', 
+            description: '주인없는 카메라들. <br> 이제는 낡아버린 그들의 추억.', 
+            title_en: '<br> <br> <br> Location: Dongmyo', 
+            description_en: 'Ownerless cameras.<br>Their memories that have now become old.',
+            code: 'dm2' 
+        },
+        'stamp11': { 
+            title: '<br> 발견 장소: 동묘', 
+            description: '모든 걸 다 지워주는 옥쏠라. <br> 비누를 섞어 문질러주세요.', 
+            title_en: '<br> Location: Dongmyo', 
+            description_en: 'Oksola that erases everything.<br>Mix with soap and rub.',
+            code: 'dm3' 
+        },
+        'stamp12': { 
+            title: '<br> <br> <br> <br> 발견 장소: 동묘', 
+            description: '브이. 이게 바로 히트상품. <br> 런닝이 단돈 오천원.', 
+            title_en: '<br> <br> <br> <br> Location: Dongmyo', 
+            description_en: 'V. This is the hit product.<br>Running shirt for only 5,000 won.',
+            code: 'dm4' 
+        },
+        'stamp13': { 
+            title: '<br> <br> 발견 장소: 종로 5가', 
+            description: '보기만 해도 발이 아픈 지압슬리퍼.<br> 이걸 신으면 건강해지나요?', 
+            title_en: '<br> <br> Location: Jongno 5-ga', 
+            description_en: 'Acupressure slippers that hurt just by looking.<br>Will I get healthy if I wear this?',
+            code: 'jr1' 
+        },
+        'stamp14': { 
+            title: '발견 장소: 종로 5가', 
+            description: '의료기 도매합니다. <br> 노란 테이프로 서로 엮여있는 간판과 벽돌들.', 
+            title_en: 'Location: Jongno 5-ga', 
+            description_en: 'Wholesale medical devices.<br>Signs and bricks tied together with yellow tape.',
+            code: 'jr2' 
+        },
+        'stamp15': { 
+            title: '<br> <br> 발견 장소: 종로 5가', 
+            description: '문닫은 가게 앞의 화초. <br> 아름다운 붉은빛을 뽐내며 묵묵히 자리를 지킵니다.', 
+            title_en: '<br> <br> Location: Jongno 5-ga', 
+            description_en: 'Plants in front of a closed shop.<br>Silently keeping its place while showing off its beautiful red color.',
+            code: 'jr3' 
+        },
+        'stamp16': { 
+            title: '<br> <br> <br><br> 발견 장소: 종로 5가', 
+            description: '로또집도 주일은 쉽니다. <br> 안내문 뒤로 빼곡히 자리잡은 로또용지의 글씨들.', 
+            title_en: '<br> <br> <br><br> Location: Jongno 5-ga', 
+            description_en: 'Lotto shop is also closed on Sundays.<br>Lotto paper letters packed behind the notice.',
+            code: 'jr4' 
+        },
+        'stamp17': { 
+            title: '발견 장소: 동대문', 
+            description: '도장집의 거대한 도장 모양 간판.<br> 강렬한 빨간색이 눈길을 끕니다.', 
+            title_en: 'Location: Dongdaemun', 
+            description_en: 'A huge stamp-shaped sign at a stamp shop.<br>The intense red color catches the eye.',
+            code: 'dd1' 
+        },
+        'stamp18': { 
+            title: '<br> <br> <br> 발견 장소: 동대문', 
+            description: '원단시장 안에서 발견한 원단 조각들. <br> 겹겹이 쌓여가며 하나의 형태를 이루고 있습니다.', 
+            title_en: '<br> <br> <br> Location: Dongdaemun', 
+            description_en: 'Fabric scraps found in the fabric market.<br>Piling up layer by layer to form a shape.',
+            code: 'dd2' 
+        },
+        'stamp19': { 
+            title: '<br> <br><br> 발견 장소: 동대문', 
+            description: '사주, 신점, 타로 모두 다 봐드립니다. <br> 동대문 길거리에서 발견한 간판의 모습입니다.', 
+            title_en: '<br> <br><br> Location: Dongdaemun', 
+            description_en: 'Saju, fortune telling, tarot, all available.<br>This is a sign found on the streets of Dongdaemun.',
+            code: 'dd3' 
+        },
+        'stamp20': { 
+            title: '<br> <br> <br> <br> 발견 장소: 동대문', 
+            description: '몸에 빨간 리본을 감고있는 돌고래. <br> 아, 진짜 돌고래는 아니고 돌고래 풍선.', 
+            title_en: '<br> <br> <br> <br> Location: Dongdaemun', 
+            description_en: 'A dolphin with a red ribbon around its body.<br>Ah, not a real dolphin, but a dolphin balloon.',
+            code: 'dd4' 
+        },
     };
     
     let isMouseOver = false;
@@ -508,16 +769,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = stampData[stampId];
             
             if (data) {
+                // 현재 언어에 맞는 텍스트 선택
+                const title = currentLang === 'en' ? (data.title_en || data.title) : data.title;
+                const description = currentLang === 'en' ? (data.description_en || data.description) : data.description;
+                const hoverText = currentLang === 'en' ? 'Hover to see the original image.' : '마우스를 올려 원래 모습을 감상해보세요.';
+                
                 // 상세 정보 창 내용 채우기
                 detailContent.innerHTML = `
-                    <h3>${data.title}</h3>
-                    <p>${data.description}</p>
+                    <h3 id="stamp-detail-title">${title}</h3>
+                    <p id="stamp-detail-desc">${description}</p>
                     <div class="detail-image-container">
-                        <img src="${stamp.querySelector('img').src}" alt="${data.title}" 
+                        <img src="${stamp.querySelector('img').src}" alt="${title}" 
                              style="max-width: 80%; margin: 20px auto; display: block;" 
                              class="detail-image" data-code="${data.code}">
                     </div>
-                    <p class="hover-instruction">마우스를 올려 원래 모습을 감상해보세요.</p>
+                    <p class="hover-instruction">${hoverText}</p>
                 `;
                 
                 // 항상 오른쪽에서 나오도록 설정

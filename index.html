@@ -17,18 +17,19 @@
     <div id="fixed-background"></div>
     <nav>
         <img src="./silhouette/silhouette5.png" id="navbutton">
+        <button id="lang-toggle" class="lang-toggle-btn">EN</button>
         <ul id="dropdown">
-            <li class="english-text">☞ About</li>
-            <li class="english-text">☞ Places</li>
-            <li class="english-text">☞ Stamps</li>
-            <li class="english-text">☞ Post office</li>
+            <li class="english-text" data-i18n="nav-about">☞ About</li>
+            <li class="english-text" data-i18n="nav-places">☞ Places</li>
+            <li class="english-text" data-i18n="nav-stamps">☞ Stamps</li>
+            <li class="english-text" data-i18n="nav-postoffice">☞ Post office</li>
         </ul>
     </nav>
     <main>
         <section id="mainTitleBox">
             <div id="mouse-background-glow"></div>
             <h1 id="mainTitle">
-                <span id="fromAlley">
+                <span id="fromAlley" data-i18n="main-title-1">
                     <span class="char">골</span><span class="char">목</span><span class="char">으</span><span class="char">로</span><span class="char">부</span><span class="char">터</span><span class="char">,</span>
                 </span>
                 <span id="withLove" class="english-text">
@@ -62,19 +63,19 @@
         <!-- About section -->
         <section id="about" class="about-section">
             <div class="about-content">
-                <h2 id="about-title">About the project</h2>
-                <p>"골목으로부터, With Love"는
+                <h2 id="about-title" data-i18n="about-title">About the project</h2>
+                <p data-i18n="about-text-1">"골목으로부터, With Love"는
                 서울 구도심의 동네들을 직접 걸으며
                 골목 속 '작은 발견'들을 수집한 기록에서 출발한 프로젝트입니다.</p>
                 <br>
-                <p>서울의 오래된 골목에는 시간이 스쳐간 흔적들이 조용히 남아 있습니다.
+                <p data-i18n="about-text-2">서울의 오래된 골목에는 시간이 스쳐간 흔적들이 조용히 남아 있습니다.
                 낡은 벽, 그 위의 낙서, 누군가 두고 간 주인 없는 물건들까지.</p>
                 <br>
-                <p>누군가는 무심히 지나쳤을지 몰라도, 그 모두는 분명 서울의 일부였습니다. 
+                <p data-i18n="about-text-3">누군가는 무심히 지나쳤을지 몰라도, 그 모두는 분명 서울의 일부였습니다. 
                 그 소소한 것들이 잊히지 않고, 오래도록 의미를 지니길 바라는 마음으로 
                 기념우표 형태의 그래픽으로 옮겨 담았습니다.</p>
                 <br>
-                <p>웹사이트의 '우체국' 페이지에서는
+                <p data-i18n="about-text-4">웹사이트의 '우체국' 페이지에서는
                 이 우표를 붙여 직접 이메일을 보낼 수도 있습니다.
                 아주 사적인 마음 하나, 오래된 골목의 공기와 함께 띄워보세요.</p>
             </div>
@@ -86,7 +87,7 @@
             <section id="places">
                 <!-- Scroll indicators removed -->
                 <div id="places-title-container">
-                    <h2 id="places-title" class="english-text">Places</h2>
+                    <h2 id="places-title" class="english-text" data-i18n="places-title">Places</h2>
                 </div>
                 
                 <div id="placeswrapper">
@@ -95,13 +96,13 @@
                             <img src="./alleypic/충무로.png" alt="충무로">
                         </div>
                         <div class="place-content">
-                            <h3>충무로</h3>
+                            <h3 data-i18n="place-cmr-title">충무로</h3>
                             <div class="place-text">
-                                <p>충무로역 1번 출구를 나서면 시간이 잠시 멈춘 듯한 골목이 펼쳐진다.
+                                <p data-i18n="place-cmr-desc-1">충무로역 1번 출구를 나서면 시간이 잠시 멈춘 듯한 골목이 펼쳐진다.
                                     좁은 도로를 따라 빽빽하게 자리한 인쇄소, 재단소, 제본소, 출력소들.
                                     가게마다 오래된 간판과 손때 묻은 기계가 그대로다.</p>
             
-                                <p>아침 일찍부터 기계 돌아가는 소리, 종이 냄새, 사장님들의 진한 커피 냄새가 섞여 있다.
+                                <p data-i18n="place-cmr-desc-2">아침 일찍부터 기계 돌아가는 소리, 종이 냄새, 사장님들의 진한 커피 냄새가 섞여 있다.
                                     빠르게 변화하는 도심 속에서도 충무로 인쇄골목은 소량 제작, 수작업의 정성,
                                     손발 맞춘 협업이 이어지는 몇 안 되는 곳이다.</p>
                             </div>
@@ -119,13 +120,13 @@
                             <img src="./alleypic/을지로.png" alt="을지로">
                         </div>
                         <div class="place-content">
-                            <h3>을지로</h3>
+                            <h3 data-i18n="place-ejr-title">을지로</h3>
                             <div class="place-text">
-                                <p>을지로는 공구상가, 인쇄소, 철물점들이 이어진 서울의 대표적인 산업 골목이다.
+                                <p data-i18n="place-ejr-desc-1">을지로는 공구상가, 인쇄소, 철물점들이 이어진 서울의 대표적인 산업 골목이다.
                                     좁은 골목길마다 낡은 간판과 금속 재질의 문들이 겹겹이 쌓여 있고,
                                     작은 작업장 안에서는 여전히 기계가 돌아가고 사람이 손으로 무언가를 만들어낸다.</p>
             
-                                <p>최근 몇 년 사이, 을지로는 이런 오래된 분위기에 매력을 느낀 젊은 세대가 모이면서
+                                <p data-i18n="place-ejr-desc-2">최근 몇 년 사이, 을지로는 이런 오래된 분위기에 매력을 느낀 젊은 세대가 모이면서
                                     낡은 골목 안에 카페, 갤러리, 독립 서점 같은 새로운 공간들이 스며들기 시작했다.</p>
                             </div>
                             <div class="place-silhouettes">
@@ -142,12 +143,12 @@
                             <img src="./alleypic/동묘.png" alt="동묘">
                         </div>
                         <div class="place-content">
-                            <h3>동묘</h3>
+                            <h3 data-i18n="place-dm-title">동묘</h3>
                             <div class="place-text">
-                                <p>동묘 구제시장은 황학동 골동품 시장에서 갈라져 나온 시장으로,
+                                <p data-i18n="place-dm-desc-1">동묘 구제시장은 황학동 골동품 시장에서 갈라져 나온 시장으로,
                                     지금은 중고 의류, 골동품, 장난감, 카메라, 잡화 등 다양한 물건들이 노점마다 가득 쌓여 있다.</p>
             
-                                <p>이곳은 '노년층의 홍대'라고 불릴 만큼, 어르신들이 자유롭게 문화를 즐기는 공간이자,
+                                <p data-i18n="place-dm-desc-2">이곳은 '노년층의 홍대'라고 불릴 만큼, 어르신들이 자유롭게 문화를 즐기는 공간이자,
                                     빈티지 의류를 찾는 젊은 층이 뒤섞여 독특한 활기를 만들어내는 곳이기도 하다.</p>
                             </div>
                             <div class="place-silhouettes">
@@ -164,13 +165,13 @@
                             <img src="./alleypic/종로.png" alt="종로">
                         </div>
                         <div class="place-content">
-                            <h3>종로</h3>
+                            <h3 data-i18n="place-jr-title">종로</h3>
                             <div class="place-text">
-                                <p>종로는 서울의 가장 오래된 거리이자, 시대마다 다른 얼굴을 품어온 곳이다.
+                                <p data-i18n="place-jr-desc-1">종로는 서울의 가장 오래된 거리이자, 시대마다 다른 얼굴을 품어온 곳이다.
                                     종묘, 광장시장, 낙원상가 같은 장소들이 서로 겹치며,
                                     한편에는 국악기점, 한약방, 인쇄소 같은 옛 상업시설들이 여전히 버티고 있다.</p>
                                     
-                                <p>낮에는 물건을 사고파는 일상이 이어지고,
+                                <p data-i18n="place-jr-desc-2">낮에는 물건을 사고파는 일상이 이어지고,
                                     저녁이 되면 가게마다 불빛이 켜지며 골목에는 사람들의 말소리와 음식 냄새가 번진다.</p>
                             </div>
                             <div class="place-silhouettes">
@@ -187,12 +188,12 @@
                             <img src="./alleypic/동대문.png" alt="동대문">
                         </div>
                         <div class="place-content">
-                            <h3>동대문</h3>
+                            <h3 data-i18n="place-ddm-title">동대문</h3>
                             <div class="place-text">
-                                <p>동대문은 서울에서 가장 오래된 생산의 거리 중 하나로,
+                                <p data-i18n="place-ddm-desc-1">동대문은 서울에서 가장 오래된 생산의 거리 중 하나로,
                                     지금도 거대한 원단 시장과 봉제 골목, 포장재 상가들이 골목마다 촘촘히 이어진다.</p>
             
-                                <p>천과 실이 쌓여 있는 작업장, 철제 선반 위에 어지럽게 놓인 도구들,
+                                <p data-i18n="place-ddm-desc-2">천과 실이 쌓여 있는 작업장, 철제 선반 위에 어지럽게 놓인 도구들,
                                     밤늦게까지 켜진 작업등 아래에서 움직이는 사람들의 손길은 이 거리의 일상을 만든다.</p>
                             </div>
                             <div class="place-silhouettes">
@@ -209,7 +210,7 @@
         
         <!-- Stamps Section -->
         <section id="stamps">
-            <h2 class="english-text">Stamps</h2>
+            <h2 class="english-text" data-i18n="stamps-title">Stamps</h2>
             <div id="stampwrapper">
                 <!-- Row 1 -->
                 <div id="stamp1" class="stamp">
@@ -285,12 +286,12 @@
         <div id="letter-form-sticky-container" style="position: relative; height: 200vh;">
             <!-- Letter Form Section (Post Office) -->
             <section id="letter-form" class="post-office-section">
-                <h2 class="section-title">Post Office</h2>
+                <h2 class="section-title" data-i18n="postoffice-title">Post Office</h2>
                 <div class="letter-container">
                     <div class="letter-main">
                         <div class="letter-header">
                             <div class="to-section">
-                                <label for="to-input" class="to-label">To.</label>
+                                <label for="to-input" class="to-label" data-i18n="label-to">To.</label>
                                 <input type="email" id="to-input" name="to" placeholder="example@gmail.com" required>
                             </div>
                         </div>
@@ -343,12 +344,12 @@
                 
                                 <div class="input-wrapper">
                                     <input type="color" id="foreColor" class="adv-option-button">
-                                    <label for="foreColor">Font color</label>
+                                    <label for="foreColor" data-i18n="label-font-color">Font color</label>
                                 </div>
                                 <!-- 여기까지가 옵션창 -->
                             </div>
                             <div class="letter-content-wrapper">
-                                <div class="letter-body" contenteditable="true" spellcheck="false">
+                                <div class="letter-body" contenteditable="true" spellcheck="false" data-i18n="letter-placeholder">
                                     편지를 작성하고, 우표를 붙여 마음을 전해보세요.
                                 </div>
                                 <!-- 우표를 올려놓을 별도 레이어 추가 -->
@@ -359,7 +360,7 @@
 
                     <!-- 스탬프 선택 영역 (우측 세로 스크롤) -->
                     <div class="stamp-selector">
-                        <div class="stamp-selector-title">Stamps</div>
+                        <div class="stamp-selector-title" data-i18n="stamps-selector-title">Stamps</div>
                         <div class="stamp-selector-container">
                             <!-- 스탬프 복제본 20개 (원본에서 가져온 것) -->
                             <div class="stamp-option">
@@ -425,7 +426,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="send-button">Send</button>
+                <button class="send-button" data-i18n="btn-send">Send</button>
             </section>
         </div>
     </main>
@@ -434,10 +435,10 @@
     <footer id="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <h3>골목으로부터, <span class="english-text">With Love</span></h3>
+                <h3><span data-i18n="footer-title">골목으로부터,</span> <span class="english-text">With Love</span></h3>
             </div>
             <div class="footer-info">
-                <p>© 2025 골목으로부터, With Love</p>
+                <p>© 2025 <span data-i18n="footer-copyright">골목으로부터,</span> With Love</p>
 
                 <p>Designed by Chaeyeon Jin</p>
             </div>
