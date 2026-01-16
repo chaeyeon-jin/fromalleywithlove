@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    let currentLang = 'ko'; // Default language
+    let currentLang = 'en'; // Default language
 
     // 배경을 항상 radial-gradient로 유지
     if (fixedBackground) {
@@ -481,6 +481,9 @@ document.addEventListener('DOMContentLoaded', () => {
             switchLanguage(newLang);
         });
     }
+
+    // 기본 언어를 영어로 적용
+    switchLanguage('en');
     
     // 초기화 함수
     function initializeEffects() {
