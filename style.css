@@ -36,30 +36,52 @@ a, button, input, select, textarea, #navbutton, #dropdown li, .stamp, #close-det
 /* 커스텀 커서 스타일 */
 #cursor-follower {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background-color: #ccff00;
-    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    background-image: url('./keepscrolling.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 10000;
-    transition: width 0.3s, height 0.3s, opacity 0.3s, transform 0.1s;
+    transition: background-image 0.2s ease;
     opacity: 0.9;
-    box-shadow: 0 0 10px #fff;
 }
 
-/* 인터랙티브 요소 위에 있을 때 커서 확대 */
+/* 인터랙티브 요소 위에 있을 때 커서 스타일 */
 .cursor-hover {
-    width: 30px !important;
-    height: 30px !important;
+    background-image: url('./click.svg') !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px !important;
+    height: 120px !important;
+}
+
+/* Post Office 섹션에서의 커서 스타일 */
+#cursor-follower.cursor-postoffice {
+    width: 20px !important;
+    height: 20px !important;
+    background-image: none !important;
     background-color: #ccff00 !important;
-    opacity: 1 !important;
-    box-shadow: 0 0 15px #ccff00 !important;
-    transform: translate(-50%, -50%) scale(1.2) !important;
+    border-radius: 50% !important;
+}
+
+/* Post Office 섹션의 stamp-option 위에서의 커서 스타일 */
+#cursor-follower.cursor-drag {
+    width: 120px !important;
+    height: 120px !important;
+    background-color: transparent !important;
+    background-image: url('./dragit.svg') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 0 !important;
 }
 
 .english-text {
-    /* Keep the specific English font */
+    /* Restore original English title/menu font */
     font-family: "r41-alfabeta-72", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -179,6 +201,7 @@ nav {
 
 #fromAlley {
     display: block;
+    font-family: "r41-alfabeta-72", sans-serif;
     /* Reduce font size by 20% (1.875rem * 0.8 = 1.5rem) */
     font-size: 2rem;
     margin-bottom: 0.8rem; /* Adjust margin accordingly */
@@ -1069,7 +1092,7 @@ input[type="color"] {
     position: absolute;
     top: 10px;
     right: 15px;
-    font-family: "r41-alfabeta-72", sans-serif;
+    font-family: "orbit", sans-serif;
     font-size: 3rem; /* 변경: 크기 축소 */
     font-weight: 700;
     color: rgba(255, 255, 255, 0.7); /* 변경: 투명도 추가 */
@@ -1212,28 +1235,8 @@ input[type="color"] {
 .footer-links {
     flex: 1;
     min-width: 250px;
-/* Language Toggle Styles - English Mode */
-body.lang-en {
-    font-family: "r41-alfabeta-72", sans-serif;
-    letter-spacing: normal;
-    word-break: break-word;
-}
     display: flex;
-body.lang-en .place-content h3,
-body.lang-en .place-text p,
-body.lang-en .about-content p,
-body.lang-en .footer-info p,
-body.lang-en .footer-links a,
-body.lang-en .detail-content p,
-body.lang-en #detail-content h3,
-body.lang-en #detail-content p {
-    font-family: "r41-alfabeta-72", sans-serif;
-}
-
-/* Adjust line-height for English text if needed */
-body.lang-en p {
-    line-height: 1.6;
-}    flex-direction: column;
+    flex-direction: column;
     margin-left: 10vw; /* 왼쪽 마진 추가 */
 }
 
@@ -1253,7 +1256,7 @@ body.lang-en p {
 
 /* Language Toggle Styles - English Mode */
 body.lang-en {
-    font-family: "r41-alfabeta-72", sans-serif;
+    font-family: "orbit", sans-serif;
     letter-spacing: normal;
     word-break: break-word;
 }
@@ -1264,9 +1267,8 @@ body.lang-en .about-content p,
 body.lang-en .footer-info p,
 body.lang-en .footer-links a,
 body.lang-en .detail-content p,
-body.lang-en #detail-content h3,
 body.lang-en #detail-content p {
-    font-family: "r41-alfabeta-72", sans-serif;
+    font-family: "orbit", sans-serif;
 }
 
 /* Adjust line-height for English text if needed */

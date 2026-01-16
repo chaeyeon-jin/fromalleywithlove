@@ -120,6 +120,56 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
+        // 커서 팔로워를 마우스 위치에 바로 표시
+        if (cursorFollower) {
+            cursorFollower.style.left = `${mouseX}px`;
+            cursorFollower.style.top = `${mouseY}px`;
+            
+            // stamp-detail 팝업창 감지
+            const stampDetail = document.getElementById('stamp-detail');
+            let isInStampDetail = false;
+            if (stampDetail && stampDetail.classList.contains('open')) {
+                const stampDetailRect = stampDetail.getBoundingClientRect();
+                isInStampDetail = mouseX >= stampDetailRect.left && 
+                                 mouseX <= stampDetailRect.right && 
+                                 mouseY >= stampDetailRect.top && 
+                                 mouseY <= stampDetailRect.bottom;
+            }
+            
+            // Post Office 섹션 감지
+            const letterForm = document.getElementById('letter-form');
+            let isInPostOffice = false;
+            if (letterForm) {
+                const letterFormRect = letterForm.getBoundingClientRect();
+                isInPostOffice = mouseX >= letterFormRect.left && 
+                                mouseX <= letterFormRect.right && 
+                                mouseY >= letterFormRect.top && 
+                                mouseY <= letterFormRect.bottom;
+            }
+            
+            if (isInStampDetail) {
+                // stamp-detail 팝업창 위에서
+                cursorFollower.classList.add('cursor-postoffice');
+                cursorFollower.classList.remove('cursor-drag', 'cursor-hover');
+            } else if (isInPostOffice) {
+                // Post Office 섹션 내에서
+                cursorFollower.classList.add('cursor-postoffice');
+                
+                // stamp-option 위에 있는지 확인
+                const elementBelow = document.elementFromPoint(mouseX, mouseY);
+                const stampOption = elementBelow?.closest('.stamp-option');
+                
+                if (stampOption) {
+                    cursorFollower.classList.add('cursor-drag');
+                    cursorFollower.classList.remove('cursor-hover');
+                } else {
+                    cursorFollower.classList.remove('cursor-drag');
+                }
+            } else {
+                cursorFollower.classList.remove('cursor-postoffice', 'cursor-drag');
+            }
+        }
+        
         // 메인 타이틀 영역에서의 마우스 위치 계산
         if (mainTitleBox) {
             const rect = mainTitleBox.getBoundingClientRect();
@@ -168,21 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             char.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg) scale(${scale})`;
         });
-    }
-    
-    // 커서 팔로워 업데이트 애니메이션
-    function updateCursorFollower() {
-        // 부드러운 움직임을 위한 계산
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        
-        // 커서 위치 업데이트
-        if (cursorFollower) {
-            cursorFollower.style.left = `${cursorX}px`;
-            cursorFollower.style.top = `${cursorY}px`;
-        }
-        
-        requestAnimationFrame(updateCursorFollower);
     }
     
     // 스탬프 아이들 애니메이션 파라미터 저장 객체
@@ -449,9 +484,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 초기화 함수
     function initializeEffects() {
-        // 커서 애니메이션 시작
-        updateCursorFollower();
-        
         // 커서 호버 효과 설정
         setupCursorHoverEffects();
         
